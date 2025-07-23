@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Today's Date Widget</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: transparent;
+    }
+
+    body {
+      font-family: Tahoma, "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+    }
+
+    .day {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .date {
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="day" id="dayDisplay"></div>
+    <div class="date" id="dateDisplay"></div>
+  </div>
+
+  <script>
+    const date = new Date();
+    const day = date.toLocaleDateString(undefined, { weekday: 'long' });
+    const monthAndDate = date.toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
+
+    document.getElementById('dayDisplay').textContent = day;
+    document.getElementById('dateDisplay').textContent = monthAndDate;
+  </script>
+</body>
+</html>
